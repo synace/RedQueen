@@ -1,0 +1,9 @@
+<h1>Members</h1>
+
+<a href="{{ app.url_generator.generate('members_add') }}">+ Add</a>
+
+<ul>
+    {% for member in members %}
+        <li><a href="{{ app.url_generator.generate('members_edit', { id: member.id }) }}">{{ member.name }}</a></li>
+    {% endfor %}
+</ul>

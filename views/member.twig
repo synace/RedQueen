@@ -1,0 +1,20 @@
+{% if member.id %}
+<h1>{{ member.name }}</h1>
+<a href="{{ app.url_generator.generate('members_delete', {id: member.id}) }}">x Delete</a>
+{% endif %}
+
+<form method="post">
+    {{ form_widget(form) }}
+    <input type="submit" name="submit" />
+</form>
+
+{% if member.id %}
+<h2>Cards</h2>
+<a href="{{ app.url_generator.generate('members_add_card', {id: member.id}) }}">+ Add</a>
+
+<ul>
+{% for card in member.cards %}
+  <li><a href="{{ app.url_generator.generate('members_edit_card', {id: card.id}) }}">{{ card.code }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}

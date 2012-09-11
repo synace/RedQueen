@@ -1,0 +1,10 @@
+<h1>Card for member {{ member.name }}</h1>
+
+{% if card.id %}
+<a href="{{ app.url_generator.generate('members_delete_card', {id: card.id}) }}">x Delete</a>
+{% endif %}
+
+<form method="post">
+    {{ form_widget(form) }}
+    <input type="submit" name="submit" />
+</form>
